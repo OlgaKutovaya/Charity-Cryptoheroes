@@ -38,7 +38,8 @@
     "jsx-a11y/label-has-for": [0],
     "no-nested-ternary": [0],
     "no-console": "off",
-    "react/no-array-index-key": "off"
+    "react/no-array-index-key": "off",
+    "react/react-in-jsx-scope": "off"
   },
   settings: {
     // Allow absolute paths in imports, e.g. import Button from 'components/Button'

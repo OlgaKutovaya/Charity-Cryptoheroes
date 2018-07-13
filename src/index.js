@@ -1,8 +1,9 @@
 import "bootstrap-css-only";
-import "../styles/main.css";
-import "../styles/main.sass";
 import { h, render } from "preact";
 import Carousel from "nuka-carousel";
+import XemCounter from "./XemCounter";
+import "../styles/main.css";
+import "../styles/main.sass";
 import ch1 from "../img/children-1.jpg";
 import ch2 from "../img/children-2.jpg";
 import ch3 from "../img/children-3.jpg";
@@ -16,7 +17,7 @@ render(
         <div className="col-md-2" />
         <div className="col-md-2">
           <a href="index.html">
-            <img className="logo-img d-block" src={logo} alt="logo-image" />
+            <img className="logo-img d-block" src={logo} alt="logo" />
           </a>
         </div>
         <div className="col-md-6 text-center">
@@ -54,23 +55,7 @@ render(
           <div className="col-md-1" />
           <div className="col-xl-4">
             <div className="counter-wrapper m-auto">
-              <div className="counter">
-                <p className="text-counter text-center">1 000 000</p>
-              </div>
-              <button
-                type="button"
-                className="btn btn-primary btn-lg btn-charity d-block"
-                id="btnPay"
-              >
-                ПОЖЕРТВОВАТЬ
-              </button>
-              <a
-                className="text-uppercase d-block m-auto text-center link-last-charity"
-                href="recent-contributions.html"
-                target="_blank"
-              >
-                <b>последние взносы</b>
-              </a>
+              <XemCounter />
             </div>
           </div>
           <div className="col-md-2" />
@@ -314,7 +299,7 @@ render(
     </main>
     <footer className="d-flex footer-wrapper">
       <div className="nav-copyright-wrapper fs-20 d-flex">
-        <img className="logo-footer-img" src={logo} alt="logo-image" />
+        <img className="logo-footer-img" src={logo} alt="logo" />
         <h2 className="text-uppercase mt-2 ml-3 footer-header">
           <span className="text-orange">CRYPTO</span>
           <span className="text-blue">HEROES</span>
@@ -335,119 +320,6 @@ render(
         </a>
       </nav>
     </footer>
-    <div className="modal" tabindex="-1" role="dialog" id="modalPay">
-      <div className="pay-wrapper">
-        <legend className="border-r-26">
-          <h2 className="d-inline-block modal-heading">
-            <span className="text-orange">CRYPTO</span>
-            <span className="text-blue">HEROES</span>
-          </h2>
-          <a href="#" className="pull-right" id="btnClose">
-            <i className="fa fa-fw fa-times" />
-          </a>
-        </legend>
-        <div className="form-group">
-          <label for="">Благотворительность, 1.00000000 XEM</label>
-          <div className="input-group">
-            <input
-              type="number"
-              size="2"
-              step="any"
-              min="0.01"
-              className="form-control"
-            />
-            <div className="input-group-addon w6">
-              1.00 x 1.00000000 = 1.00000000 XEM
-            </div>
-          </div>
-        </div>
-        <div className="form-group">
-          <label for="">Валюта платежа</label>
-          <div>
-            <div className="custom-select">
-              <div className="custom-select-select">
-                <div className="select-main-section">
-                  <span className="select-main-selected">
-                    Выбор криптовалюты
-                  </span>
-                  <i
-                    aria-hidden="true"
-                    className="fa pull-right fa-caret-down"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="form-group">
-          <label for="email">
-            Email
-            <span className="text-danger" />
-          </label>
-          <div>
-            <input
-              type="email"
-              placeholder="my@email.address"
-              name="email"
-              required="required"
-              className="form-control border-r-26"
-              id="email"
-            />
-          </div>
-        </div>
-        <div className="form-group">
-          <label for="name">
-            Имя
-            <span className="text-danger" />
-          </label>
-          <div>
-            <input
-              name="name"
-              pattern=".{null}"
-              type="text"
-              className="form-control border-r-26"
-              id="name"
-            />
-            <span className="text-muted pull-right">----> ----></span>
-            <div className="clearfix" />
-          </div>
-        </div>
-        <div className="form-group">
-          <label for="phone">
-            Телефон
-            <span className="text-danger" />
-          </label>
-          <div>
-            <input
-              name="phone"
-              pattern=".{null}"
-              type="text"
-              className="form-control border-r-26"
-              id="phone"
-            />
-            <span className="text-muted pull-right" />
-            <div className="clearfix" />
-          </div>
-        </div>
-        <div className="form-group">
-          <label for="comment">Комментарий</label>
-          <div>
-            <input
-              name="comment"
-              pattern=".{null}"
-              type="text"
-              className="form-control border-r-26"
-              id="comment"
-            />
-            <span className="text-muted pull-right" />
-            <div className="clearfix" />
-          </div>
-        </div>
-        <button className="btn-primary btn-lg text-center d-block m-auto">
-          ОПЛАТИТЬ
-        </button>
-      </div>
-    </div>
   </div>,
   document.body,
 );

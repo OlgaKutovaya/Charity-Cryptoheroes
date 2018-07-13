@@ -62,8 +62,8 @@ html, body {
     .table-wrapper .cell p {
       font-size: 0.7rem; } }
 
-#modalPay {
-  display: none;
+.modalPay {
+  display: flex;
   background-color: rgba(61, 61, 61, 0.9); }
 
 .modal-heading {

@@ -1,10 +1,18 @@
 import { h, Component } from "preact";
 import Portal from "preact-portal";
+import Iframe from "react-iframe";
 import RecentContributions from "./RecentContributions";
-import Donate from "./Donate";
 
-const ADDRESS = "";
-const ACCOUNT_INFO_URL = `http://110.44.135.87/account/get?address=${ADDRESS}`;
+const ADDRESS = "NB7N2TY5DYV3LOVCK5I3LN5U6C2JTMXTKHP6U3HE";
+const ACCOUNT_INFO_URL = `http://62.75.171.41:7890/account/get?address=${ADDRESS}`;
+
+const Donate = () => (
+  <Iframe
+    url="https://app.paytomat.com/pay_product/sdpMoGpn2jP"
+    width="680"
+    height="600"
+  />
+);
 
 export default class XemCounter extends Component {
   state = {
@@ -15,17 +23,17 @@ export default class XemCounter extends Component {
 
   componentDidMount() {
     fetch(ACCOUNT_INFO_URL, { method: "GET" })
-      .then(res => this.setState({ balance: res.json().account.balance }))
+      .then(res => res.json())
+      .then(res => this.setState({ balance: res.account.balance }))
       .catch(err => console.log(err));
   }
 
   render() {
-    console.log(this.state);
     const { ModalComponent, modalOpen, balance } = this.state;
     return (
       <div>
         <div className="counter">
-          <p className="text-counter text-center">{balance} XEM</p>
+          <p className="text-counter text-center">{balance / 1000000} XEM</p>
         </div>
         <button
           type="button"
@@ -53,15 +61,17 @@ export default class XemCounter extends Component {
         </button>
         {modalOpen ? (
           <Portal into="body">
-            <div className="modal" tabIndex="-1" role="dialog">
+            <div className="modal modalPay" tabIndex="-1" role="dialog">
               <div className="pay-wrapper">
                 <legend className="border-r-26">
                   <h2 className="d-inline-block modal-heading">
                     <span className="text-orange">CRYPTO</span>
                     <span className="text-blue">HEROES</span>
                   </h2>
-                  <button
+                  <div
+                    tabIndex="0"
                     className="pull-right"
+                    role="button"
                     onClick={() => {
                       this.setState({
                         modalOpen: false,
@@ -70,7 +80,7 @@ export default class XemCounter extends Component {
                     }}
                   >
                     <i className="fa fa-fw fa-times" />
-                  </button>
+                  </div>
                 </legend>
                 <ModalComponent />
               </div>

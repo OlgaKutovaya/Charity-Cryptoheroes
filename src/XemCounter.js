@@ -1,10 +1,6 @@
 import { h, Component } from "preact";
 import Portal from "preact-portal";
 import Iframe from "react-iframe";
-import RecentContributions from "./RecentContributions";
-
-const ADDRESS = "NB7N2TY5DYV3LOVCK5I3LN5U6C2JTMXTKHP6U3HE";
-const ACCOUNT_INFO_URL = `http://62.75.171.41:7890/account/get?address=${ADDRESS}`;
 
 const Donate = () => (
   <Iframe
@@ -22,7 +18,7 @@ export default class XemCounter extends Component {
   };
 
   componentDidMount() {
-    fetch(ACCOUNT_INFO_URL, { method: "GET" })
+    fetch("/api/v1/walletBalance", { method: "GET" })
       .then(res => res.json())
       .then(res => this.setState({ balance: res.account.balance }))
       .catch(err => console.log(err));

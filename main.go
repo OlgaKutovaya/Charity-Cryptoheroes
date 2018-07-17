@@ -6,10 +6,16 @@ import (
 
 	"github.com/globalsign/mgo"
 	"github.com/kataras/iris"
+	"github.com/parnurzeal/gorequest"
 	"gopkg.in/mgo.v2/bson"
 )
 
-type Transaction struct {
+const nodeURL = "62.75.171.41:7890"
+const accountAddress = "NB7N2TY5DYV3LOVCK5I3LN5U6C2JTMXTKHP6U3HE"
+const serverAddr = "159.89.106.229:443"
+const serverMail = "cryptoheroesteam@gmail.com"
+
+type transaction struct {
 	TxID      string    `json:"tx_id"`
 	TxCode    string    `json:"tx_code"`
 	Amount    string    `json:"amount"`
@@ -22,6 +28,12 @@ type Transaction struct {
 		Message string `json:"message"`
 		Email   string `json:"email"`
 	} `json:"details"`
+}
+
+type wallet struct {
+	account struct {
+		balance int
+	}
 }
 
 func main() {
@@ -51,8 +63,9 @@ func main() {
 	t := api.Party("/transactions")
 	t.Post("/add", transactionAddingHandler(session))
 	t.Get("/all", getAllTransactionsHandler(session))
+	api.Get("/walletbalance", getWalletBalance)
 
-	app.Run(iris.Addr(":8080"))
+	app.Run(iris.AutoTLS(accountAddress, "", serverMail))
 }
 
 func transactionAddingHandler(s *mgo.Session) func(ctx iris.Context) {
@@ -62,7 +75,7 @@ func transactionAddingHandler(s *mgo.Session) func(ctx iris.Context) {
 
 		c := session.DB("charity").C("transactions")
 
-		trans := Transaction{}
+		trans := transaction{}
 		ctx.ReadJSON(&trans)
 		trans.Timestamp = time.Now()
 		err := c.Insert(trans)
@@ -81,7 +94,7 @@ func getAllTransactionsHandler(s *mgo.Session) func(ctx iris.Context) {
 
 		c := session.DB("charity").C("transactions")
 
-		var trans []Transaction
+		var trans []transaction
 		err := c.Find(bson.M{}).All(&trans)
 		if err != nil {
 			log.Println(err)
@@ -89,4 +102,10 @@ func getAllTransactionsHandler(s *mgo.Session) func(ctx iris.Context) {
 
 		ctx.JSON(trans)
 	}
+}
+
+func getWalletBalance(ctx iris.Context) {
+	var w wallet
+	gorequest.New().Get("http://" + nodeURL + "/account/get?address=" + accountAddress).EndStruct(&w)
+	ctx.JSON(w)
 }

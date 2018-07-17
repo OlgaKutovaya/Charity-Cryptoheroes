@@ -14,34 +14,31 @@ export default class RecentContributions extends Component {
 
   render() {
     return (
-      <main className="container-fluid main-wrapper">
-        <h1 className="text-center text-green text-uppercase mb-5 main-header">
-          последние взносы
-        </h1>
-        <div className="table-wrapper d-flex">
-          <div className="cell bg-d-blue">
-            <h5 className="text-center text-white">ID </h5>
+      <div>
+        <div className="table-wrapper d-flex mt-3">
+          <div className="cell">
+            <h5>ID</h5>
           </div>
-          <div className="cell bg-d-blue">
-            <h5 className="text-center text-white">Hash</h5>
+          <div className="cell">
+            <h5>Hash</h5>
           </div>
-          <div className="cell bg-d-blue">
-            <h5 className="text-center text-white">QR</h5>
+          <div className="cell">
+            <h5>QR</h5>
           </div>
-          <div className="cell bg-d-blue">
-            <h5 className="text-center text-white">Сумма</h5>
+          <div className="cell">
+            <h5>Сумма</h5>
           </div>
-          <div className="cell bg-d-blue">
-            <h5 className="text-center text-white">Дата</h5>
+          <div className="cell">
+            <h5>Дата</h5>
           </div>
         </div>
         {this.state.transactions.map((tx, i) => (
           <div className="table-wrapper d-flex">
-            <div className="cell bg-blue">
-              <h3 className="text-white text-center">{i}</h3>
+            <div className="cell">
+              <p>{i}</p>
             </div>
             <div className="cell">
-              <p>{tx.tx_code}</p>
+              <p>{tx.code}</p>
             </div>
             <div className="cell">
               <p>{tx.qr_code}</p>
@@ -54,7 +51,7 @@ export default class RecentContributions extends Component {
             </div>
           </div>
         ))}
-      </main>
+      </div>
     );
   }
 }

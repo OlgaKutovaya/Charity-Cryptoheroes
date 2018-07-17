@@ -15,12 +15,12 @@ render(
     <header className="container-fluid header">
       <div className="row">
         <div className="col-md-2" />
-        <div className="col-md-2">
+        <div className="col-md-1">
           <a href="index.html">
             <img className="logo-img d-block" src={logo} alt="logo" />
           </a>
         </div>
-        <div className="col-md-6 text-center">
+        <div className="col-md-6">
           <h1 className="heading header-heading text-uppercase">
             <span className="text-orange">CRYPTO</span>
             <span className="text-blue">HEROES</span>
@@ -40,7 +40,7 @@ render(
             </h2>
             <p>Первый благотворительный проект на блокчейне!</p>
             <p>
-              Crypto Heroes - первое решение в Украине и за её пределами,
+              <b>Crypto Heroes</b> - первое решение в Украине и за её пределами,
               обеспечивающее прозрачность к социальному финансированию с помощью
               технологии blockchain!
             </p>
@@ -50,18 +50,20 @@ render(
               доказать, что в нашей стране есть честность, прозрачность и
               технологический потенциал.
             </p>
-            <p>Стань героем в криптомире!</p>
+            <p>
+              <b>Стань героем в криптомире!</b>
+            </p>
           </div>
           <div className="col-md-1" />
           <div className="col-xl-4">
-            <div className="counter-wrapper m-auto">
+            <div className="wrapper m-auto">
               <XemCounter />
             </div>
           </div>
           <div className="col-md-2" />
         </div>
       </section>
-      <section className="container-fluid">
+      <section className="container-fluid mb-5">
         <div className="row">
           <div className="col-lg-12">
             <div className="carousel-wrapper">
@@ -103,8 +105,8 @@ render(
       </section>
       <section className="container-fluid">
         <div className="row">
-          <div className="col-lg-2" />
-          <div className="col-md-8 m-auto text-justify">
+          <div className="col-xl-2" />
+          <div className="col-xl-4 m-auto text-justify">
             <p>
               Проект{" "}
               <span className="text-orange">
@@ -143,19 +145,29 @@ render(
               платформы NEM.
             </p>
           </div>
+          <div className="col-xl-4">
+            <div className="img-1-wrapper m-auto">
+              <img className="img-1" src="img/children-3.jpg" alt="" />
+            </div>
+          </div>
           <div className="col-lg-2" />
         </div>
       </section>
-      <section className="container-fluid">
-        <div className="row">
-          <div className="col-lg-2" />
-          <div className="col-md-8 text-justify m-auto">
-            <h2 className="text-uppercase text-center mt-4">
+      <section className="container-fluid mt-5">
+        <div className="row d-flex f-col">
+          <div className="col-sm-2" />
+          <div className="col-xl-4 mt-5 m-auto">
+            <div className="img-2-wrapper">
+              <img className="img-2" src="img/children-4.jpg" alt="" />
+            </div>
+          </div>
+          <div className="col-xl-4 text-justify m-auto">
+            <h3 className="text-uppercase text-center">
               <span className="text-orange">CRYPTO</span>
               <span className="text-blue">HEROES</span>
               <span className="text-green">- как это работает ?</span>
-            </h2>
-            <p className="text-center mt-4 mb-4">Проект предполагает:</p>
+            </h3>
+            <p className="text-center mt-4 mb-3">Проект предполагает:</p>
             <ul className="project-promotion-list">
               <li>новую эффективную модель сбора средств (в криптовалютах)</li>
               <li>защищённость хранения собранных средств</li>
@@ -164,6 +176,14 @@ render(
               <li>удобную обратную связь для донора от проекта</li>
               <li>новую модель поощрения учеников.</li>
             </ul>
+          </div>
+          <div className="col-sm-2" />
+        </div>
+      </section>
+      <section className="container-fluid">
+        <div className="row">
+          <div className="col-lg-2" />
+          <div className="col-md-8 m-auto text-justify">
             <p className="mt-5">
               Мы уверены, что таким проектом стимулируем, в дальнейшем,
               общественные организации (благотворительные организации, НПО,
@@ -180,14 +200,6 @@ render(
                 <b>социально незащищенной группы детей</b>
               </span>!
             </p>
-          </div>
-          <div className="col-lg-2" />
-        </div>
-      </section>
-      <section className="container-fluid">
-        <div className="row">
-          <div className="col-lg-2" />
-          <div className="col-md-8 m-auto text-justify">
             <h2 className="text-uppercase text-center text-blue font-weight-bold mt-4 mb-4">
               наши партнёры
             </h2>
@@ -240,60 +252,123 @@ render(
           <div className="col-lg-2" />
         </div>
       </section>
-      <section className="container-fluid">
-        <div className="row">
-          <div className="col-lg-2" />
-          <div className="col-md-4 text-justify m-auto pt-5">
-            <div className="circle-img m-auto" />
-            <h3 className="text-center pt-3">
-              <span className="text-warning">NEM Foundation</span>
-            </h3>
-            <p className="text-center pt-2 w-75 m-auto">description</p>
-          </div>
-          <div className="col-md-4 text-justify m-auto pt-5">
-            <div className="circle-img m-auto" />
-            <h3 className="text-center pt-3">
-              <span className="text-success">Name</span>
-            </h3>
-            <p className="text-center pt-2 w-75 m-auto">description</p>
-          </div>
-          <div className="col-lg-2" />
+      <section className="container-fluid wrapper-main-partners d-flex justify-content-between">
+        <div className="partner-info-wrapper">
+          <div className="partner-img-wrapper" />
+          <h4 className="text-center mt-4 text-green">NEM Foundation</h4>
+          <p className="partner-description">
+            NEM Foundation - организация со штаб-квартирой в Сингапуре, которая
+            проводит некоммерческую деятельность по обучению, распространению
+            знаний о технологии NEM блокчейн, а также всесторонне содействует
+            созданию решений основанных на блокчейн-платформе NEM в глобальном
+            масштабе, во всех отраслях и институциях
+          </p>
+          <p className="partner-description text-center">
+            <b>Антон Босенко NEM Ukraine Leader</b>
+          </p>
+          <p className="partner-description text-center">
+            <a href="https://www.facebook.com/anton.bsnko">
+              Facebook (Антон Босенко)
+            </a>
+          </p>
+          <p className="partner-description text-center">
+            <a href="https://nem.io">Официальный сайт NEM</a>
+          </p>
+          <p className="partner-description text-center">
+            <a href="https://www.facebook.com/NEMUkraine/">Facebook (NEM)</a>
+          </p>
         </div>
-        <div className="row">
-          <div className="col-lg-2" />
-          <div className="col-md-4 text-justify m-auto pt-5">
-            <div className="circle-img m-auto" />
-            <h3 className="text-center pt-3">
-              <span className="text-success">Name</span>
-            </h3>
-            <p className="text-center pt-2 w-75 m-auto">description</p>
-          </div>
-          <div className="col-md-4 text-justify m-auto pt-5">
-            <div className="circle-img m-auto" />
-            <h3 className="text-center pt-3">
-              <span className="text-warning">Name</span>
-            </h3>
-            <p className="text-center pt-2 w-75 m-auto">description</p>
-          </div>
-          <div className="col-lg-2" />
+        <div className="partner-info-wrapper">
+          <div className="partner-img-wrapper" />
+          <h4 className="text-center mt-4 text-green">NEM Foundation</h4>
+          <p className="partner-description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab
+            accusamus aliquid beatae dolore dolorem ex fugiat iusto magnam
+            maxime minus nesciunt nulla optio perspiciatis quasi, quibusdam quis
+            reiciendis, rem repellat temporibus vel veniam, voluptatem
+            voluptatum? Animi aut delectus deserunt, eaque eligendi error est ex
+            excepturi incidunt, laudantium nulla, numquam odit omnis praesentium
+            quasi quod repudiandae totam veniam? Consequatur delectus error est
+            nam odit optio, possimus provident quaerat quam quo repellat, saepe
+            tempora voluptates. Accusamus aliquam animi commodi corporis cum
+            dolor illo, impedit, magnam modi neque nisi, odio possimus quas
+            ratione reprehenderit sapiente voluptatem. Blanditiis cum ea et
+            provident sint.
+          </p>
         </div>
-        <div className="row">
-          <div className="col-lg-2" />
-          <div className="col-md-4 text-justify m-auto pt-5">
-            <div className="circle-img m-auto" />
-            <h3 className="text-center pt-3">
-              <span className="text-warning">Name</span>
-            </h3>
-            <p className="text-center pt-2 w-75 m-auto">description</p>
-          </div>
-          <div className="col-md-4 text-justify m-auto pt-5">
-            <div className="circle-img m-auto" />
-            <h3 className="text-center pt-3">
-              <span className="text-success">Name</span>
-            </h3>
-            <p className="text-center pt-2 w-75 m-auto">description</p>
-          </div>
-          <div className="col-lg-2" />
+        <div className="partner-info-wrapper">
+          <div className="partner-img-wrapper" />
+          <h4 className="text-center mt-4 text-green">NEM Foundation</h4>
+          <p className="partner-description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab
+            accusamus aliquid beatae dolore dolorem ex fugiat iusto magnam
+            maxime minus nesciunt nulla optio perspiciatis quasi, quibusdam quis
+            reiciendis, rem repellat temporibus vel veniam, voluptatem
+            voluptatum? Animi aut delectus deserunt, eaque eligendi error est ex
+            excepturi incidunt, laudantium nulla, numquam odit omnis praesentium
+            quasi quod repudiandae totam veniam? Consequatur delectus error est
+            nam odit optio, possimus provident quaerat quam quo repellat, saepe
+            tempora voluptates. Accusamus aliquam animi commodi corporis cum
+            dolor illo, impedit, magnam modi neque nisi, odio possimus quas
+            ratione reprehenderit sapiente voluptatem. Blanditiis cum ea et
+            provident sint.
+          </p>
+        </div>
+      </section>
+      <section className="container-fluid wrapper-main-partners d-flex justify-content-between">
+        <div className="partner-info-wrapper">
+          <div className="partner-img-wrapper" />
+          <h4 className="text-center mt-4 text-green">NEM Foundation</h4>
+          <p className="partner-description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab
+            accusamus aliquid beatae dolore dolorem ex fugiat iusto magnam
+            maxime minus nesciunt nulla optio perspiciatis quasi, quibusdam quis
+            reiciendis, rem repellat temporibus vel veniam, voluptatem
+            voluptatum? Animi aut delectus deserunt, eaque eligendi error est ex
+            excepturi incidunt, laudantium nulla, numquam odit omnis praesentium
+            quasi quod repudiandae totam veniam? Consequatur delectus error est
+            nam odit optio, possimus provident quaerat quam quo repellat, saepe
+            tempora voluptates. Accusamus aliquam animi commodi corporis cum
+            dolor illo, impedit, magnam modi neque nisi, odio possimus quas
+            ratione reprehenderit sapiente voluptatem. Blanditiis cum ea et
+            provident sint.
+          </p>
+        </div>
+        <div className="partner-info-wrapper">
+          <div className="partner-img-wrapper" />
+          <h4 className="text-center mt-4 text-green">NEM Foundation</h4>
+          <p className="partner-description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab
+            accusamus aliquid beatae dolore dolorem ex fugiat iusto magnam
+            maxime minus nesciunt nulla optio perspiciatis quasi, quibusdam quis
+            reiciendis, rem repellat temporibus vel veniam, voluptatem
+            voluptatum? Animi aut delectus deserunt, eaque eligendi error est ex
+            excepturi incidunt, laudantium nulla, numquam odit omnis praesentium
+            quasi quod repudiandae totam veniam? Consequatur delectus error est
+            nam odit optio, possimus provident quaerat quam quo repellat, saepe
+            tempora voluptates. Accusamus aliquam animi commodi corporis cum
+            dolor illo, impedit, magnam modi neque nisi, odio possimus quas
+            ratione reprehenderit sapiente voluptatem. Blanditiis cum ea et
+            provident sint.
+          </p>
+        </div>
+        <div className="partner-info-wrapper">
+          <div className="partner-img-wrapper" />
+          <h4 className="text-center mt-4 text-green">NEM Foundation</h4>
+          <p className="partner-description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab
+            accusamus aliquid beatae dolore dolorem ex fugiat iusto magnam
+            maxime minus nesciunt nulla optio perspiciatis quasi, quibusdam quis
+            reiciendis, rem repellat temporibus vel veniam, voluptatem
+            voluptatum? Animi aut delectus deserunt, eaque eligendi error est ex
+            excepturi incidunt, laudantium nulla, numquam odit omnis praesentium
+            quasi quod repudiandae totam veniam? Consequatur delectus error est
+            nam odit optio, possimus provident quaerat quam quo repellat, saepe
+            tempora voluptates. Accusamus aliquam animi commodi corporis cum
+            dolor illo, impedit, magnam modi neque nisi, odio possimus quas
+            ratione reprehenderit sapiente voluptatem. Blanditiis cum ea et
+            provident sint.
+          </p>
         </div>
       </section>
     </main>
@@ -307,16 +382,32 @@ render(
       </div>
       <nav className="social-networks-icons d-flex">
         <a className="nav-link" href="#">
-          <i className="fab fa-facebook-f footer-items" />
+          <img
+            src={import("../img/icons/fb.svg")}
+            alt=""
+            className="footer-items"
+          />
         </a>
         <a className="nav-link" href="#">
-          <i className="fab fa-youtube footer-items" />
+          <img
+            src={import("../img/icons/instagram.svg")}
+            alt=""
+            className="footer-items"
+          />
         </a>
         <a className="nav-link" href="#">
-          <i className="fab fa-twitter footer-items" />
+          <img
+            src={import("../img/icons/twitter.svg")}
+            alt=""
+            className="footer-items"
+          />
         </a>
         <a className="nav-link" href="#">
-          <i className="fab fa-instagram footer-items" />
+          <img
+            src={import("../img/icons/youtube.svg")}
+            alt=""
+            className="footer-items"
+          />
         </a>
       </nav>
     </footer>

@@ -2,13 +2,16 @@ import "bootstrap-css-only";
 import { h, render } from "preact";
 import Carousel from "nuka-carousel";
 import XemCounter from "./XemCounter";
-import "../styles/main.css";
 import "../styles/main.sass";
 import ch1 from "../img/children-1.jpg";
 import ch2 from "../img/children-2.jpg";
 import ch3 from "../img/children-3.jpg";
 import ch4 from "../img/children-4.jpg";
 import logo from "../img/logo.png";
+import youtube from "../img/icons/youtube.svg";
+import twitter from "../img/icons/twitter.svg";
+import instagram from "../img/icons/instagram.svg";
+import fb from "../img/icons/fb.svg";
 
 render(
   <div>
@@ -147,7 +150,7 @@ render(
           </div>
           <div className="col-xl-4">
             <div className="img-1-wrapper m-auto">
-              <img className="img-1" src="img/children-3.jpg" alt="" />
+              <img className="img-1" src={ch3} alt="" />
             </div>
           </div>
           <div className="col-lg-2" />
@@ -158,7 +161,7 @@ render(
           <div className="col-sm-2" />
           <div className="col-xl-4 mt-5 m-auto">
             <div className="img-2-wrapper">
-              <img className="img-2" src="img/children-4.jpg" alt="" />
+              <img className="img-2" src={ch4} alt="" />
             </div>
           </div>
           <div className="col-xl-4 text-justify m-auto">
@@ -382,32 +385,16 @@ render(
       </div>
       <nav className="social-networks-icons d-flex">
         <a className="nav-link" href="#">
-          <img
-            src={import("../img/icons/fb.svg")}
-            alt=""
-            className="footer-items"
-          />
+          <img src={fb} alt="" className="footer-items" />
         </a>
         <a className="nav-link" href="#">
-          <img
-            src={import("../img/icons/instagram.svg")}
-            alt=""
-            className="footer-items"
-          />
+          <img src={instagram} alt="" className="footer-items" />
         </a>
         <a className="nav-link" href="#">
-          <img
-            src={import("../img/icons/twitter.svg")}
-            alt=""
-            className="footer-items"
-          />
+          <img src={twitter} alt="" className="footer-items" />
         </a>
         <a className="nav-link" href="#">
-          <img
-            src={import("../img/icons/youtube.svg")}
-            alt=""
-            className="footer-items"
-          />
+          <img src={youtube} alt="" className="footer-items" />
         </a>
       </nav>
     </footer>

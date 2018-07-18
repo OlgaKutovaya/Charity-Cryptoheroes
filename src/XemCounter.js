@@ -7,13 +7,13 @@ const Donate = () => (
   <Iframe
     url="https://app.paytomat.com/pay_product/sdpMoGpn2jP"
     width="680"
-    height="600"
+    height="580"
   />
 );
 
 const formatBalance = balance => {
-  const balArr = String(balance / 1000000).split("");
-  while (balArr.length < 6) {
+  const balArr = String(parseFloat(balance / 1000000).toFixed(1)).split("");
+  while (balArr.length <= 6) {
     balArr.unshift("0");
   }
   return balArr;
@@ -47,14 +47,15 @@ export default class XemCounter extends Component {
           </p>
         </div>
         <div className="counter d-flex justify-content-around">
-          {formatBalance(balance).map((int, i) => (
-            <div>
-              {i === 6 ? <div className="counter-point" /> : null}
+          {formatBalance(balance).map(int => {
+            return int == "." ? (
+              <div className="counter-point" />
+            ) : (
               <div className="counter-content">
                 <p className="text-counter">{int}</p>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         <button
           type="button"
@@ -70,7 +71,7 @@ export default class XemCounter extends Component {
         >
           ПОЖЕРТВОВАТЬ
         </button>
-        <button
+        <div
           className="d-block m-auto text-center link-last-charity"
           onClick={() => {
             this.setState({
@@ -81,10 +82,15 @@ export default class XemCounter extends Component {
           }}
         >
           Последние взносы
-        </button>
+        </div>
         {modalOpen ? (
           <Portal into="body">
-            <div id="modalLastCharity" tabIndex="-1" role="dialog">
+            <div
+              className="modal"
+              id="modalLastCharity"
+              tabIndex="-1"
+              role="dialog"
+            >
               <main className="container-fluid main-wrapper">
                 <h3 className="text-blue text-uppercase">
                   Cryptoheroes
@@ -99,9 +105,7 @@ export default class XemCounter extends Component {
                         modalName: "",
                       });
                     }}
-                  >
-                    <i className="fa fa-fw fa-times" />
-                  </div>
+                  />
                 </h3>
                 <h4 className="text-left text-blue main-header">
                   {this.state.modalName}

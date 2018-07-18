@@ -6,6 +6,7 @@
   "author": "glebasya2000 <Glebasya2000@mail.ru>",
   "license": "MIT",
   "dependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.54",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "bootstrap-css-only": "^4.1.1",
     "html-webpack-plugin": "^4.0.0-alpha",

@@ -206,51 +206,6 @@ render(
             <h2 className="text-uppercase text-center text-blue font-weight-bold mt-4 mb-4">
               наши партнёры
             </h2>
-            <p>
-              Наш партнер -{" "}
-              <span className="text-green">
-                <b>DITS - IT школа</b>
-              </span>{" "}
-              нового уровня
-            </p>
-            <p>
-              Предоставляет современные знания, опыт на реальных проектах и
-              <span className="text-green">
-                <b>помогаем получить работу IT в</b>
-              </span>
-              <span className="text-green">
-                <b>Украине, </b>
-              </span>
-              <span className="text-green">
-                <b>Германии, и</b>
-              </span>
-              <span className="text-green">
-                <b>Европе !</b>
-              </span>
-            </p>
-            <p>
-              Школа будет так же{" "}
-              <span className="text-green">
-                <b>организовывать встречи и мотивирующие лекции</b>
-              </span>{" "}
-              с успешными представителями IT сферы
-            </p>
-            <p>
-              А, также, общение с соучредителями школы из Германии и Украины и
-              <span className="text-green">
-                <b>обучение английскому и немецкому языках!</b>
-              </span>
-            </p>
-            <p>
-              Мы{" "}
-              <span className="text-green">
-                <b>обучим детей</b>
-              </span>{" "}
-              и
-              <span className="text-green">
-                <b>откроем им новый мир!</b>
-              </span>
-            </p>
           </div>
           <div className="col-lg-2" />
         </div>

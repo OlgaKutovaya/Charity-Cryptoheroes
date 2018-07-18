@@ -77,7 +77,7 @@ func main() {
 	t.Get("/all", getAllTransactionsHandler(session))
 	api.Get("/walletBalance", getWalletBalance)
 
-	if os.Getenv("mode") == "productions" {
+	if os.Getenv("mode") == "production" {
 		app.Run(iris.AutoTLS(serverAddr, "", serverMail))
 	} else {
 		app.Run(iris.Addr(devServerAddr))

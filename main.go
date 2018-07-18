@@ -65,7 +65,7 @@ func main() {
 	t.Get("/all", getAllTransactionsHandler(session))
 	api.Get("/walletbalance", getWalletBalance)
 
-	app.Run(iris.AutoTLS(accountAddress, "", serverMail))
+	app.Run(iris.AutoTLS(serverAddr, "", serverMail))
 }
 
 func transactionAddingHandler(s *mgo.Session) func(ctx iris.Context) {

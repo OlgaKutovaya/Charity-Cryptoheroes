@@ -46,8 +46,9 @@
     "clear": "rm -rf ./build & rm -rf ./dist/gziped_build.go",
     "build:server": "bindata -o ./dist/gziped_build.go ./build/... ./styles/paytomat.css",
     "build:client": "webpack-cli",
-    "build": "MODE=production yarn clear && yarn build:client && yarn build:server",
+    "build": "yarn clear && yarn build:client && yarn build:server",
     "build:exe": "go build",
+    "start:prod": "MODE=production go run main.go",
     "start": "go run main.go"
   }
 }

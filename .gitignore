@@ -3,3 +3,4 @@ build
 yarn-error.log
 .gitignore
 yarn.lock
+dist/bindata_gzip.go

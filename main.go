@@ -2,8 +2,10 @@ package main
 
 import (
 	"log"
+	"os"
 	"time"
 
+	"./dist"
 	"github.com/globalsign/mgo"
 	"github.com/kataras/iris"
 	"github.com/parnurzeal/gorequest"
@@ -14,6 +16,7 @@ const nodeURL = "62.75.171.41:7890"
 const accountAddress = "NB7N2TY5DYV3LOVCK5I3LN5U6C2JTMXTKHP6U3HE"
 
 const serverAddr = "159.89.106.229:443"
+const devServerAddr = ":8080"
 const serverMail = "cryptoheroesteam@gmail.com"
 
 type Transaction struct {
@@ -59,14 +62,26 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	app.StaticWeb("/", "./build")
+
+	app.RegisterView(iris.HTML("./build", ".html"))
+	app.Get("/", func(ctx iris.Context) {
+		ctx.View("index.html")
+	})
+	app.StaticServe("./paytomat.css", "/paytomat")
+	assetHandler := iris.StaticEmbeddedHandler("./build", dist.GzipAsset, dist.GzipAssetNames, true)
+	app.SPA(assetHandler).AddIndexName("index.html")
+
 	api := app.Party("/api/v1")
 	t := api.Party("/transactions")
 	t.Post("/add", transactionAddingHandler(session))
 	t.Get("/all", getAllTransactionsHandler(session))
 	api.Get("/walletBalance", getWalletBalance)
 
-	app.Run(iris.AutoTLS(serverAddr, "", serverMail))
+	if os.Getenv("mode") == "productions" {
+		app.Run(iris.AutoTLS(serverAddr, "", serverMail))
+	} else {
+		app.Run(iris.Addr(devServerAddr))
+	}
 }
 
 func transactionAddingHandler(s *mgo.Session) func(ctx iris.Context) {

@@ -63,7 +63,7 @@ func main() {
 	t := api.Party("/transactions")
 	t.Post("/add", transactionAddingHandler(session))
 	t.Get("/all", getAllTransactionsHandler(session))
-	api.Get("/walletbalance", getWalletBalance)
+	api.Get("/walletBalance", getWalletBalance)
 
 	app.Run(iris.AutoTLS(serverAddr, "", serverMail))
 }

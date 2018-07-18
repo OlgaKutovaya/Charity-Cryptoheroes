@@ -1,7 +1,19 @@
-.pay-wrapper legend {
+legend {
   display: none;
 }
 
-.container {
+.container{
   background-color: #B8E6FB
+}
+
+footer{
+  display: none
+}
+
+.pay-wrapper {
+  background-color: #B8E6FB !important
+}
+
+.cover {
+  background-color: #B8E6FB !important
 }
